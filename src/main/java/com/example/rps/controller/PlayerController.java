@@ -11,7 +11,7 @@ public class PlayerController {
 
     @GetMapping("/{id}")
     public String gameGamePage(
-            @PathVariable("id") Integer playerId,
+            @PathVariable("id") String playerId,
             Model model
     ) {
         model.addAttribute("player_id", playerId);
@@ -21,7 +21,7 @@ public class PlayerController {
     @PostMapping("/move")
     public String move(
             @RequestParam("move") String move,
-            @RequestParam("player_id") Integer playerId,
+            @RequestParam("player_id") String playerId,
             Model model
     ) {
         Symbol symbol;
