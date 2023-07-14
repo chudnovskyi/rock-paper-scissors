@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(InvalidMoveValueException.class)
-    public String invalidMoveValueException(Model model, InvalidMoveValueException e) { // TODO: error.properties
-        model.addAttribute("error", "Invalid: " + e.getMove() + ":" + e.getPlayerId());
+    public String invalidMoveValueException(Model model, InvalidMoveValueException e) {
+        model.addAttribute("error", e.getMessage());
         return "error";
     }
 }

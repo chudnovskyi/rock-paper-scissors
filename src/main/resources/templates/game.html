@@ -19,6 +19,10 @@
     </div>
 
     <br>
+    <div th:if="${result}">
+        <p th:text="${result}"></p>
+    </div>
+    <br>
     <a th:href="@{/api/v1/home/}">Back to homepage</a>
 </body>
 </html>

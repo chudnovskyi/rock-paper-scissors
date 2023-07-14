@@ -25,5 +25,5 @@ public class Result {
     @Column(name = "player_b_symbol")
     private Symbol playerBSymbol;
 
-    private String winner;
+    private String winnerId;
 }

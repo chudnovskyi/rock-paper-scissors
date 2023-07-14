@@ -11,14 +11,15 @@ import org.springframework.stereotype.Service;
 public class ResultService {
 
     private final ResultRepository resultRepository;
+    private final MessageSourceService message;
 
     public String makeMove(String playerId, String move) {
         Symbol symbol;
 
         try {
-            symbol = Symbol.valueOf(move + "!");
+            symbol = Symbol.valueOf(move);
         } catch (IllegalArgumentException e) {
-            throw new InvalidMoveValueException(move, playerId);
+            throw new InvalidMoveValueException(message.getProperty("symbol.invalid", move));
         }
 
         return ";";
