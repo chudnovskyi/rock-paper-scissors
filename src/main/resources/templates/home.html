@@ -19,7 +19,11 @@
     <p th:text="'Tie: ' + ${history.ties} + ' of ' + ${history.total} + ' games'"></p>
 
     <form th:action="@{/api/v1/history/}" th:method="delete">
-        <button class="destroy">CLEAR</button>
+        <button>CLEAR</button>
+    </form>
+    <br>
+    <form th:action="@{/api/v1/history/}" th:method="get">
+        <button>HISTORY</button>
     </form>
 </body>
 </html>
