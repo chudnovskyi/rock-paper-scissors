@@ -19,7 +19,7 @@ public class GameListener {
         Symbol symbolA = game.getSymbolA();
         Symbol symbolB = game.getSymbolB();
 
-        if (symbolA != null && symbolB != null) {
+        if (symbolA != null && symbolB != null) { // TODO
             Symbol winnerSymbol = calculateWinner(symbolA, symbolB);
             if (winnerSymbol == null) {
                 game.setWinner(TIE_RESULT);

@@ -30,5 +30,5 @@ public class Game {
     @Column(name = "symbol_b")
     private Symbol symbolB;
 
-    private String winner;
+    private String winner; // TODO: winner enum
 }

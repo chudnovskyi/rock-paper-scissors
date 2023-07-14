@@ -8,10 +8,12 @@ import com.example.rps.model.Symbol;
 import com.example.rps.repository.GameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class GameService {
 
@@ -40,6 +42,10 @@ public class GameService {
         return Optional.of(gameRepository.findAll())
                 .map(historyMapper::mapToHistoryResponse)
                 .orElseThrow();
+    }
+
+    public void deleteGames() {
+        gameRepository.deleteByActiveFalse();
     }
 
     private boolean hasPlayerMadeChoice(Game game, Player player) {
