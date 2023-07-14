@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  db-postgres:
+    container_name: db-postgres
+    hostname: db-postgres
+    image: postgres:alpine3.17
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: rps
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data
+    volumes:
+      - db-postgres:/data
+
+volumes:
+  db-postgres: { }
