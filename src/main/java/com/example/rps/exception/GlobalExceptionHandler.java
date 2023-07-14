@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @RequiredArgsConstructor
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(InvalidMoveValueException.class)
-    public String invalidMoveValueException(Model model, InvalidMoveValueException e) {
+    @ExceptionHandler(InvalidSymbolValueException.class)
+    public String invalidMoveValueException(Model model, InvalidSymbolValueException e) {
         model.addAttribute("error", e.getMessage());
         return "error";
     }

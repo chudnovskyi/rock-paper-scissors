@@ -12,7 +12,7 @@
 
     <div th:each="symbol : ${T(com.example.rps.model.Symbol).values()}">
         <form th:action="@{'/api/v1/players/move'}" method="post">
-            <input type="hidden" name="move" th:value="${symbol.name()}">
+            <input type="hidden" name="symbol" th:value="${symbol.name()}">
             <input type="hidden" name="player_id" th:value="${player_id}">
             <button type="submit" th:text="${symbol.name()}"></button>
         </form>

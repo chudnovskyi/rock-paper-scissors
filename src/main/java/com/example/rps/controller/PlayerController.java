@@ -1,6 +1,8 @@
 package com.example.rps.controller;
 
-import com.example.rps.service.ResultService;
+import com.example.rps.model.Player;
+import com.example.rps.model.Symbol;
+import com.example.rps.service.GameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,25 +13,25 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/players")
 public class PlayerController {
 
-    private final ResultService resultService;
+    private final GameService gameService;
 
     @GetMapping("/{id}")
-    public String gameGamePage(
-            @PathVariable("id") String playerId,
+    public String getPlayerPage(
+            @PathVariable("id") Player player,
             Model model
     ) {
-        model.addAttribute("player_id", playerId);
-        return "game";
+        model.addAttribute("player_id", player.toString());
+        return "player";
     }
 
-    @PostMapping("/move")
-    public String move(
-            @RequestParam("move") String move,
-            @RequestParam("player_id") String playerId,
+    @PostMapping("/choice")
+    public String choice(
+            @RequestParam("symbol") Symbol symbol,
+            @RequestParam("player_id") Player player,
             Model model
     ) {
-        String result = resultService.makeMove(playerId, move);
+        String result = gameService.makeMove(player, symbol);
         model.addAttribute("result", result);
-        return gameGamePage(playerId, model);
+        return getPlayerPage(player, model);
     }
 }

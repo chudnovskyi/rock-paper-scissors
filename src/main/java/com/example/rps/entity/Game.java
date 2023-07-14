@@ -1,5 +1,6 @@
 package com.example.rps.entity;
 
+import com.example.rps.listener.GameListener;
 import com.example.rps.model.Symbol;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,18 +13,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "results")
-public class Result {
+@EntityListeners(GameListener.class)
+@Table(name = "games")
+public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "player_a_symbol")
+    @Builder.Default
+    private boolean active = true;
+
+    @Column(name = "a_symbol")
     private Symbol playerASymbol;
 
-    @Column(name = "player_b_symbol")
+    @Column(name = "b_symbol")
     private Symbol playerBSymbol;
 
-    private String winnerId;
+    private String winner;
 }
