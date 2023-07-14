@@ -10,10 +10,6 @@
     <h1>Player <span th:text="${player_id}"></span></h1>
     <p>Please, make your move:</p>
 
-    <div th:if="${error}">
-        <p style="color: red;" th:text="${error}"></p>
-    </div>
-
     <div th:each="symbol : ${T(com.example.rps.model.Symbol).values()}">
         <form th:action="@{'/api/v1/players/move'}" method="post">
             <input type="hidden" name="move" th:value="${symbol.name()}">

@@ -1,13 +1,17 @@
 package com.example.rps.controller;
 
-import com.example.rps.model.Symbol;
+import com.example.rps.service.ResultService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/players")
 public class PlayerController {
+
+    private final ResultService resultService;
 
     @GetMapping("/{id}")
     public String gameGamePage(
@@ -24,16 +28,8 @@ public class PlayerController {
             @RequestParam("player_id") String playerId,
             Model model
     ) {
-        Symbol symbol;
-        try {
-            symbol = Symbol.valueOf(move);
-        } catch (IllegalArgumentException e) {
-            model.addAttribute("error", "Invalid attribute");
-            return gameGamePage(playerId, model);
-        }
-
-        // TODO: call to service
-
+        String result = resultService.makeMove(playerId, move);
+        model.addAttribute("result", result);
         return gameGamePage(playerId, model);
     }
 }
