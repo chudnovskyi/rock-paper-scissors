@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <h1>Welcome to the Game!</h1>
+    <p>Please, select a player:</p>
+    <ul>
+        <li><a th:href="@{/api/v1/players/1}">Player 1</a></li>
+        <li><a th:href="@{/api/v1/players/2}">Player 2</a></li>
+    </ul>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.rps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.TestConfiguration;

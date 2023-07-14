@@ -1,15 +1,15 @@
-package com.example.game.controller;
+package com.example.rps.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/api/v1/player1")
-public class PlayerController {
+@RequestMapping("/api/v1/home")
+public class HomeController {
 
-    @GetMapping("/get")
-    public String getHtml() {
-        return "test";
+    @GetMapping("/")
+    public String getHomePage() {
+        return "home";
     }
 }

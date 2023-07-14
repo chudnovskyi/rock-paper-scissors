@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <h1>Welcome, Player_<span th:text="${player_id}"></span></h1>
+    <p>Please, make your move:</p>
+
+    <div th:if="${error}">
+        <p style="color: red;" th:text="${error}"></p>
+    </div>
+
+    <div th:each="symbol : ${T(com.example.rps.model.Symbol).values()}">
+        <form th:action="@{'/api/v1/players/move'}" method="post">
+            <input type="hidden" name="move" th:value="${symbol.name()}">
+            <input type="hidden" name="player_id" th:value="${player_id}">
+            <button type="submit" th:text="${symbol.name()}"></button>
+        </form>
+    </div>
+
+    <br>
+    <a th:href="@{/api/v1/home/}">Back to homepage</a>
+</body>
+</html>
