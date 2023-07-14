@@ -24,11 +24,11 @@ public class Game {
     @Builder.Default
     private boolean active = true;
 
-    @Column(name = "a_symbol")
-    private Symbol playerASymbol;
+    @Column(name = "symbol_a")
+    private Symbol symbolA;
 
-    @Column(name = "b_symbol")
-    private Symbol playerBSymbol;
+    @Column(name = "symbol_b")
+    private Symbol symbolB;
 
     private String winner;
 }

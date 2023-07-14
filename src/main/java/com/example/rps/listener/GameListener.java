@@ -16,8 +16,8 @@ public class GameListener {
 
     @PreUpdate
     private void preUpdate(Game game) {
-        Symbol symbolA = game.getPlayerASymbol();
-        Symbol symbolB = game.getPlayerBSymbol();
+        Symbol symbolA = game.getSymbolA();
+        Symbol symbolB = game.getSymbolB();
 
         if (symbolA != null && symbolB != null) {
             Symbol winnerSymbol = calculateWinner(symbolA, symbolB);
