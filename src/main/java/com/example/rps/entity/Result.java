@@ -19,7 +19,10 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "player_a_symbol")
     private Symbol playerASymbol;
+
+    @Column(name = "player_b_symbol")
     private Symbol playerBSymbol;
 
     private String winner;
