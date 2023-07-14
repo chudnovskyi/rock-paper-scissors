@@ -25,7 +25,7 @@ public class GameService {
     private final HistoryMapper historyMapper;
     private final GameMapper gameMapper;
 
-    public synchronized String makeChoice(Player player, Symbol symbol) {
+    public String makeChoice(Player player, Symbol symbol) {
         Game game = gameRepository.findByActiveTrue()
                 .orElseGet(Game::new);
 

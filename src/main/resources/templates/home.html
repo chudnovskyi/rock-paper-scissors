@@ -7,11 +7,12 @@
 </head>
 
 <body>
-    <h1>Welcome to the Game!</h1>
+    <h1>Welcome!</h1>
     <p>Please, select a player:</p>
     <ul>
         <li><a th:href="@{/api/v1/players/A}">Player A</a></li>
         <li><a th:href="@{/api/v1/players/B}">Player B</a></li>
+        <li><a th:href="@{/api/v1/players/generate}">GENERATE 100</a></li>
     </ul>
 
     <p th:text="'Player A wins ' + ${history.winsA} + ' of ' + ${history.total} + ' games'"></p>

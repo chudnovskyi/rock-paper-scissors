@@ -2,6 +2,7 @@ package com.example.rps.entity;
 
 import com.example.rps.listener.GameListener;
 import com.example.rps.model.Symbol;
+import com.example.rps.model.Winner;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,5 +31,5 @@ public class Game {
     @Column(name = "symbol_b")
     private Symbol symbolB;
 
-    private String winner; // TODO: winner enum
+    private Winner winner;
 }

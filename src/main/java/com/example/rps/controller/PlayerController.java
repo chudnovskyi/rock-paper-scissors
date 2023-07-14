@@ -8,6 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Random;
+
+import static com.example.rps.model.Player.A;
+import static com.example.rps.model.Player.B;
+import static com.example.rps.model.Symbol.PAPER;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/players")
@@ -34,5 +40,17 @@ public class PlayerController {
         model.addAttribute("result", result);
         model.addAttribute("player_id", player.toString());
         return "player";
+    }
+
+    @GetMapping("/generate")
+    public String generate() {
+        Random random = new Random();
+        Symbol[] values = Symbol.values();
+        for (int i = 0; i < 100; i++) {
+            gameService.makeChoice(A, PAPER);
+            int rand = random.nextInt(values.length);
+            gameService.makeChoice(B, values[rand]);
+        }
+        return "redirect:/api/v1/home/";
     }
 }
