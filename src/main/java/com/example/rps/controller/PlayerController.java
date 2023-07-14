@@ -30,7 +30,7 @@ public class PlayerController {
             @RequestParam("player_id") Player player,
             Model model
     ) {
-        String result = gameService.makeMove(player, symbol);
+        String result = gameService.makeChoice(player, symbol);
         model.addAttribute("result", result);
         model.addAttribute("player_id", player.toString());
         return "player";
