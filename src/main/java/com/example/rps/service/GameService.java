@@ -2,13 +2,14 @@ package com.example.rps.service;
 
 import com.example.rps.dto.HistoryResponse;
 import com.example.rps.entity.Game;
+import com.example.rps.mapper.HistoryMapper;
 import com.example.rps.model.Player;
 import com.example.rps.model.Symbol;
 import com.example.rps.repository.GameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +17,7 @@ public class GameService {
 
     private final GameRepository gameRepository;
     private final MessageSourceService message;
+    private final HistoryMapper historyMapper;
 
     public synchronized String makeChoice(Player player, Symbol symbol) {
         Game game = gameRepository.findByActiveTrue()
@@ -34,8 +36,10 @@ public class GameService {
         return message.getProperty("game.choice.recorded");
     }
 
-    public List<HistoryResponse> getHistory() {
-        return null;
+    public HistoryResponse getHistory() {
+        return Optional.of(gameRepository.findAll())
+                .map(historyMapper::mapToHistoryResponse)
+                .orElseThrow();
     }
 
     private boolean hasPlayerMadeChoice(Game game, Player player) {

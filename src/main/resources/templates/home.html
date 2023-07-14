@@ -13,5 +13,9 @@
         <li><a th:href="@{/api/v1/players/A}">Player A</a></li>
         <li><a th:href="@{/api/v1/players/B}">Player B</a></li>
     </ul>
+
+    <p th:text="'Player A wins ' + ${history.winsA} + ' of ' + ${history.total} + ' games'"></p>
+    <p th:text="'Player B wins ' + ${history.winsB} + ' of ' + ${history.total} + ' games'"></p>
+    <p th:text="'Tie: ' + ${history.ties} + ' of ' + ${history.total} + ' games'"></p>
 </body>
 </html>
