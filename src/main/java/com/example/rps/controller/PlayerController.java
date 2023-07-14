@@ -32,6 +32,7 @@ public class PlayerController {
     ) {
         String result = gameService.makeMove(player, symbol);
         model.addAttribute("result", result);
-        return "redirect:/api/v1/players/" + player;
+        model.addAttribute("player_id", player.toString());
+        return "player";
     }
 }
