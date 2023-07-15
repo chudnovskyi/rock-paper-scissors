@@ -23,7 +23,7 @@ public class GameService {
     public GamesHistoryResponse getGamesHistory() {
         return Optional.of(gameRepository.findAll())
                 .map(historyMapper::mapToHistoryResponse)
-                .orElseThrow();
+                .orElse(GamesHistoryResponse.builder().build());
     }
 
     public List<GameResponse> getGames() {
