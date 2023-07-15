@@ -29,7 +29,7 @@ class GameServiceTest {
     private GameMapper gameMapper;
 
     @Test
-    void getGamesHistory_ReturnsGamesHistoryResponse() {
+    public void getGamesHistory_ReturnsGamesHistoryResponse() {
         when(gameRepository.findAll()).thenReturn(Collections.emptyList());
 
         GamesHistoryResponse actualResponse = gameService.getGamesHistory();
@@ -38,7 +38,7 @@ class GameServiceTest {
     }
 
     @Test
-    void getGames_ReturnsListGameResponse() {
+    public void getGames_ReturnsListGameResponse() {
         when(gameRepository.findAll()).thenReturn(Collections.emptyList());
         List<GameResponse> expectedResponse = Collections.emptyList();
         List<GameResponse> actualResponse = gameService.getGames();
@@ -49,7 +49,7 @@ class GameServiceTest {
     }
 
     @Test
-    void deleteGames_CallsGameRepositoryDeleteByActiveFalse() {
+    public void deleteGames_CallsGameRepositoryDeleteByActiveFalse() {
         gameService.deleteGames();
 
         verify(gameRepository, times(1)).deleteByActiveFalse();

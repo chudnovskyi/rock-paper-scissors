@@ -4,9 +4,9 @@ import lombok.Builder;
 
 @Builder
 public record GamesHistoryResponse(
-        Integer total,
-        Long winsA,
-        Long winsB,
-        Long ties
+        int total,
+        long winsA,
+        long winsB,
+        long ties
 ) {
 }
