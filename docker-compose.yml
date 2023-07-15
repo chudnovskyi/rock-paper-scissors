@@ -15,5 +15,17 @@ services:
     volumes:
       - db-postgres:/data
 
+  rock-paper-scissors:
+    container_name: rock-paper-scissors
+    hostname: rock-paper-scissors
+    image: v1acheslav/rock-paper-scissors:1.0.2
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-postgres:5432/rps
+    depends_on:
+      - db-postgres
+
 volumes:
   db-postgres: { }
