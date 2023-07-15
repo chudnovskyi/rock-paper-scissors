@@ -1,6 +1,6 @@
 package com.example.rps.dto;
 
-public record HistoryResponse(
+public record GamesHistoryResponse(
         Integer total,
         Long winsA,
         Long winsB,

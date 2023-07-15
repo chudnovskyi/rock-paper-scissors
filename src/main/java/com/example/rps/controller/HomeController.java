@@ -18,7 +18,7 @@ public class HomeController {
     public String getHomePage(
             Model model
     ) {
-        model.addAttribute("history", gameService.getHistory());
+        model.addAttribute("history", gameService.getGamesHistory());
         return "home";
     }
 }

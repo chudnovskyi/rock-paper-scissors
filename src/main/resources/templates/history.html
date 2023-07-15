@@ -14,7 +14,6 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>id</th>
             <th>A</th>
             <th>B</th>
             <th>Winner</th>
@@ -22,7 +21,6 @@
         </thead>
         <tbody>
         <tr th:each="row: ${history}">
-            <td th:text="${row.id}"></td>
             <td th:text="${row.symbolA}"></td>
             <td th:text="${row.symbolB}"></td>
             <td th:text="${row.winner}"></td>

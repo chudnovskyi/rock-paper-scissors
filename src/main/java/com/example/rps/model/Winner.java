@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Winner {
+public enum Winner implements EnumeratedEntityField {
     A("A"),
     B("B"),
     TIE("TIE");

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/history")
-public class HistoryController {
+@RequestMapping("/api/v1/games")
+public class GameController {
 
     private final GameService gameService;
 

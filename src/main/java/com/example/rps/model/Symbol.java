@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Symbol {
+public enum Symbol implements EnumeratedEntityField {
     ROCK("R"),
     PAPER("P"),
     SCISSORS("S");

@@ -19,11 +19,11 @@
     <p th:text="'Player B wins ' + ${history.winsB} + ' of ' + ${history.total} + ' games'"></p>
     <p th:text="'Tie: ' + ${history.ties} + ' of ' + ${history.total} + ' games'"></p>
 
-    <form th:action="@{/api/v1/history/}" th:method="delete">
+    <form th:action="@{/api/v1/games/}" th:method="delete">
         <button>CLEAR</button>
     </form>
     <br>
-    <form th:action="@{/api/v1/history/}" th:method="get">
+    <form th:action="@{/api/v1/games/}" th:method="get">
         <button>HISTORY</button>
     </form>
 </body>

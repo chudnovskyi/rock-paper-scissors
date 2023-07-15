@@ -2,7 +2,7 @@ package com.example.rps.controller;
 
 import com.example.rps.model.Player;
 import com.example.rps.model.Symbol;
-import com.example.rps.service.GameService;
+import com.example.rps.service.PlayerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,7 @@ import static com.example.rps.model.Symbol.PAPER;
 @RequestMapping("/api/v1/players")
 public class PlayerController {
 
-    private final GameService gameService;
+    private final PlayerService playerService;
 
     @GetMapping("/{id}")
     public String getPlayerPage(
@@ -36,7 +36,7 @@ public class PlayerController {
             @RequestParam("player_id") Player player,
             Model model
     ) {
-        String result = gameService.makeChoice(player, symbol);
+        String result = playerService.makeChoice(player, symbol);
         model.addAttribute("result", result);
         model.addAttribute("player_id", player.toString());
         return "player";
@@ -47,9 +47,9 @@ public class PlayerController {
         Random random = new Random();
         Symbol[] values = Symbol.values();
         for (int i = 0; i < 100; i++) {
-            gameService.makeChoice(A, PAPER);
+            playerService.makeChoice(A, PAPER);
             int rand = random.nextInt(values.length);
-            gameService.makeChoice(B, values[rand]);
+            playerService.makeChoice(B, values[rand]);
         }
         return "redirect:/api/v1/home/";
     }
