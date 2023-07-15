@@ -11,7 +11,7 @@ import static com.example.rps.model.Winner.*;
 public class GameListener {
 
     @PreUpdate
-    private void preUpdate(Game game) {
+    public void preUpdate(Game game) {
         Symbol symbolA = game.getSymbolA();
         Symbol symbolB = game.getSymbolB();
 

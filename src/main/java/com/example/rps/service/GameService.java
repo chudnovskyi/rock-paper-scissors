@@ -6,13 +6,11 @@ import com.example.rps.mapper.GameMapper;
 import com.example.rps.repository.GameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class GameService {
 
@@ -34,6 +32,7 @@ public class GameService {
     }
 
     public void deleteGames() {
-        gameRepository.deleteByActiveFalse();
+        gameRepository.deleteAll();
+        gameRepository.flush();
     }
 }

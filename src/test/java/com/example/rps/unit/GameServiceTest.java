@@ -52,6 +52,7 @@ class GameServiceTest {
     public void deleteGames_CallsGameRepositoryDeleteByActiveFalse() {
         gameService.deleteGames();
 
-        verify(gameRepository, times(1)).deleteByActiveFalse();
+        verify(gameRepository, times(1)).deleteAll();
+        verify(gameRepository, times(1)).flush();
     }
 }
